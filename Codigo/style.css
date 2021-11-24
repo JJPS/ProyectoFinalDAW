@@ -1,0 +1,23 @@
+.contenedor{
+    margin: auto;
+    max-width: 650px;
+    min-height: 325px;
+    padding:5px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: sans-serif;
+    background: linear-gradient( 0deg, #464646, #b1b1b1);
+}
+
+
+table{
+    text-align: left;
+    padding: 5px;
+    border: solid 2px black;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
