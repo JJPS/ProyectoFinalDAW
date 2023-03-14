@@ -3,8 +3,8 @@
 - [REQUISITOS](#requisitos)
   - [Requisitos funcionales](#requisitos-funcionales)
 - [ANÁLISIS Y DISEÑO WEB](#análisis-y-diseño-web)
-  - [Prototipo web y boceto de la estructura](#prototipo-web-y-boceto-de-la-estructura)
   - [Guía de estilos](#guía-de-estilos)
+  - [Prototipo web y boceto de la estructura](#prototipo-web-y-boceto-de-la-estructura)
   - [Planificación de tareas](#planificación-de-tareas)
   - [Base de datos](#base-de-datos)
     - [Diseño Entidad Relación de la BBDD](#diseño-entidad-relación-de-la-bbdd)
@@ -12,18 +12,14 @@
     - [Script de creación BBDD](#script-de-creación-bbdd)
     - [Consultas](#consultas)
   - [Validación de formularios](#validación-de-formularios)
-  - [Proceso de carga](#proceso-de-carga)
   - [Jerarquía de directorios](#jerarquía-de-directorios)
     - [Contenido directorios](#contenido-directorios)
   - [Diseño de la interface](#diseño-de-la-interface)
     - [Estructura gráfica de la interface](#estructura-gráfica-de-la-interface)
-- [IMPLEMENTACIÓN](#implementación)
-  - [REQUISITO 1: Diseño responsive](#requisito-1-diseño-responsive)
-    - [Funcionamiento](#funcionamiento)
-    - [Ejemplo de código](#ejemplo-de-código)
-  - [REQUISITO 2: ...](#requisito-2-)
 - [PRUEBAS](#pruebas)
-  - [Metodología de las pruebas](#metodología-de-las-pruebas)
+  - [Diseño de casos de prueba](#diseño-de-casos-de-prueba)
+  - [Implementación de pruebas](#implementación-de-pruebas)
+  - [Análisis de resultados](#análisis-de-resultados)
 - [DESPLIEGUE](#despliegue)
 - [HERRAMIENTAS](#herramientas)
 - [LENGUAJES](#lenguajes)
@@ -46,12 +42,26 @@ su desarrollo, y para su diseño se ha hecho uso de Photoshop y de estilos CSS..
 Se describen de forma concisa los requisitos funcionales de vuestra aplicación.
 ## Requisitos funcionales
 
-Se enumeran todos lo requisitos funcionales de vuestra aplicación.
+Se enumeran todos los requisitos funcionales de vuestra aplicación. Descripción detallada de cada requisito, incluyendo su funcionamiento, validaciones si fuesen necesarias, y cualqier información relevante.
+
+**Por ejemplo:**
+
+R1: Inicio de sesión con usuario autenticado
+R1.1: El usuario podrá recuperar su contraseña 
+R1.2: El usuario tendrá que ser autenticado por un administrador
+R1.3: El usuario deberá usar una dirección de correo válida
+R2: Administración de usuarios
+R2.1: El administrador gestionará usuarios, productos y compras.
+R2.2: Cualquier operación realizada sobre los usuarios deberá almacenarse en un log.
+...
+
+Esto se realiza para cada uno de los requisitos de nuestra aplicación.
 
 Además de los requisitos de vuestra aplicación hay que añadir los siguientes:
 
-- Diseño responsive
-- Control de errores en formularios que deben incluir como mínimo un registro de usuario
+- R1. Diseño responsive
+- R2. Control de errores en formularios que deben incluir como mínimo un registro de usuario
+- R2.1 El registro de usuarios contendrá cómo mínimo los siguientes campos: 
   - DNI
   - Teléfono
   - Mail
@@ -60,19 +70,17 @@ Además de los requisitos de vuestra aplicación hay que añadir los siguientes:
   - Dirección
   - Provincia (elegible desde un desplegable)
   - Población (se rellenará según los datos de la provincia seleccionada.)
-- Acceso restringido a usuarios no registrados  
+- R3. Acceso restringido a parte privada a usuarios no registrados.
 
 # ANÁLISIS Y DISEÑO WEB
 
-Breve descripción del mapa web. Se debe incluir la imagen del mapa web de vuestro proyecto.
-
-Debe contener todo el itinerario de vuestra web. Todas las páginas y el hilo de navegación
-## Prototipo web y boceto de la estructura
-
-Mookup del proyecto. Deben coincidir el número de bocetos con el número de pantallas que hayais mostrado en el mapa web
 ## Guía de estilos
 
 Debemos señalar los colores corporativos y el diseño del logo. Justificando su uso.
+## Prototipo web y boceto de la estructura
+
+Mookup del proyecto. 
+
 ## Planificación de tareas
 
 Con un diagrama de Gantt, planificamos el desarrollo del proyecto. Pautando qué vamos hacer y cuándo lo vamos a finalizar.
@@ -99,15 +107,6 @@ Se incluyen y describen todas las consultas que se emplean en el desarrollo del 
 ## Validación de formularios
 
 Se incluyen todos los formularios que se emplean en la WEB y se especifican qué tipo de validación se va ha realizar.
-## Proceso de carga
-
-Descripción del proceso de carga de vuestra aplicación. Por ejemplo:
-
-> Al introducir la URL proyecto.com en el navegador, el fichero “index.php” carga la plantilla, dependiendo del idioma (Esp, Eus o Ing), cargará una plantilla u otra, por defecto “plantillaEsp.html”.
-> 
-> El proceso se muestra en el siguiente diagrama:
->
->![ProcesoDeCarga](Imagenes/ProcesoDeCarga.png)
 
 ## Jerarquía de directorios
 
@@ -147,59 +146,80 @@ Mostramos la estructura gráfica de nuestro diseño. Por ejemplo.
 
 ![EstructuraInterface](Imagenes/EstructuraInterface.png)
 
-# IMPLEMENTACIÓN
-
-Descripción detallada de cada requisito, incluyendo su funcionamiento, validaciones si fuesen necesarias, y cualqier información relevante.
-
-**Por ejemplo:**
-
-## REQUISITO 1: Diseño responsive
-
-Cada vez hay mas usuarios de Internet que utilizan dispositivos móviles para navegar. Si nos fijamos en la analítica de nuestra web, nos damos cuenta que cada vez hay un gran numero de visitas que provienen de dispositivos móviles, por lo que las resoluciones a las cuales vemos nuestro desarrollo son diferentes.
-
-La principal necesidad que existe para hacer un diseño «adaptable», es porque se pierden bastantes visitantes, al no tener el site adaptable a todos.
-### Funcionamiento
-
-Para incluir un diseño responsive en la WEB se ha empleado CSS, y el framework Bootstrap.
-### Ejemplo de código
-
-Para la zona de publicacione se ha empleado el siguiente código:
-
-```css
-.blog-pagination {
-    margin-bottom: 4rem;
-}
- 
-.blog-pagination > .btn {
-    border-radius: 2rem;
-}
- 
- 
-.blog-footer {
-    padding: 2.5rem 0;
-    color: #999;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-top: .05rem solid #e5e5e5;
-}
-```
-## REQUISITO 2: ...
-
-Esto se realiza para cada uno de los requisitos de nuestra aplicación.
-
 # PRUEBAS
 
-Breve descripción de cómo se han realizado las pruebas. Por ejemplo:
+El objetivo de las pruebas es garantizar que la aplicación sea confiable, segura, eficiente y fácil de usar para los usuarios. El proceso de pruebas los vamos a dividir en tres etapas:
 
-> Para la realización de las pruebas he montado una máquina virtual con linux + apache + mysql + php.
+- Diseño de casos de prueba
+- Implementación de pruebas
+- Análisis de resultados
+
+## Diseño de casos de prueba
+
+En esta etapa, se definen los casos de prueba que se utilizarán para evaluar la funcionalidad de la aplicación. Estos casos de prueba deben ser lo suficientemente exhaustivos para cubrir todos los aspectos importantes de la aplicación.
+
+Por ejemplo:
+
+> Nombre del caso de prueba: **Inicio de sesión exitoso**
 > 
-> A lo largo del desarrollo he subido diferentes versiones y comprobado las diferentes funcionalidades.
+> Descripción: El objetivo de este caso de prueba es verificar que un usuario pueda iniciar sesión en la aplicación web de manera exitosa utilizando sus credenciales de inicio de sesión.
+> 
+> Precondiciones: 
+> - El usuario debe tener una cuenta válida en la aplicación web.
+> - El usuario debe tener un nombre de usuario y contraseña válidos.
+> 
+> Pasos: 
+> 
+> - Navegar a la página de inicio de sesión de la aplicación web.
+> - Ingresar el nombre de usuario del usuario en el campo "Nombre de usuario".
+> - Ingresar la contraseña del usuario en el campo "Contraseña".
+> - Hacer clic en el botón "Iniciar sesión".
+> 
+> Resultados esperados:
+> - La aplicación web debe validar las credenciales del usuario y permitir el acceso a la página principal de la aplicación.
+> - El usuario debe ser redirigido a la página principal de la aplicación web.
+> 
+> Condiciones de aprobación:
+> 
+> - Si la aplicación web valida las credenciales del usuario y permite el acceso a la página principal de la aplicación, el caso de prueba se considera aprobado.
+> - Si la aplicación web no valida las credenciales del usuario o no permite el acceso a la página principal de la aplicación, el caso de prueba se considera fallido.
 
-## Metodología de las pruebas
+## Implementación de pruebas
 
-Descripción de las pruebas que se han realizado para probar el funcionamiento de toda la aplicación. 
+En esta etapa, se llevan a cabo las pruebas utilizando los casos de prueba definidos. Esto puede incluir pruebas manuales, automatizadas o una combinación de ambas.
 
-Imprescindible comprobar el CRUD y el acceso público y privado de nuestra aplicación.
+Por ejemplo:
+
+> Caso de prueba: CP1. Inicio de sesión exitoso
+>
+> Se realiza una prueba manual de Inicio de sesión con las siguientes casuísticas:
+>
+> - CP1.1 Usuario registrado en el sistema y contraseña correcta.
+> - CP1.2 Usuario registrado en el sistema y constraseña incorrecta.
+> - CP1.3 Usuario no registrado en el sistema.
+>
+## Análisis de resultados 
+
+En esta etapa, se analizan los resultados de las pruebas para identificar errores y problemas en la aplicación. 
+
+Por ejemplo:
+
+> **Tabla resumen**
+> 
+> | Casos de prueba       |   |
+> |-----------------------|:-:|
+> | CP1. Inicio de sesión | Resultado | 
+> | CP1.1                 | Ok   | 
+> | CP1.2                 | Ok   | 
+> | CP1.3                 | Fail | 
+>
+> Se han realizado 35 pruebas en total, de las cuales 33 fueron exitosas y 2 fallaron. De las 2 pruebas que fallaron fueron debidos a errores de la conexión de internet con el servidor.
+> A partir de estos resultados podemos hacer las siguientes observaciones:
+> - La mayoría de las pruebas fueron exitosas
+> - Los errores fueron debidos a problemas de conectividad, por lo que hay que implementar mecanismos que notifiquen al usuario de este tipo de errores, ya que están fuera del control de la aplicación.
+> - ...
+
+
 
 # DESPLIEGUE
 
